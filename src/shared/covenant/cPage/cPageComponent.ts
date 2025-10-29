@@ -1,4 +1,4 @@
+import { Page } from "shared/pages";
 import { covenant } from "../covenant";
 
-// where to define all the pages in game
-export const CPage = covenant.worldComponent<"placeholder">();
+export const CPage = covenant.worldComponent<Page>();
