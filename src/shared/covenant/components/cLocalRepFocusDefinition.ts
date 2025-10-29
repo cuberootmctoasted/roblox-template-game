@@ -1,7 +1,6 @@
 import { Players, RunService } from "@rbxts/services";
-import { covenant } from "../covenant";
-import { IdRepFocus } from "../idRepFocus/idRepFocusComponent";
-import { CLocalRepFocus } from "./cLocalRepFocusComponent";
+import { covenant } from "..";
+import { CLocalRepFocus, IdRepFocus } from "./_list";
 
 covenant.defineComponent({
     component: CLocalRepFocus,

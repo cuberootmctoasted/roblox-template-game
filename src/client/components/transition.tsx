@@ -41,24 +41,31 @@ export function Transition({ groupTransparency, zIndex, children }: TransitionPr
     });
 
     return (
-        <frame BackgroundTransparency={1} Size={UDim2.fromScale(1, 1)} ZIndex={zIndex}>
+        <frame
+            BackgroundTransparency={1}
+            Size={UDim2.fromScale(1, 1)}
+            ZIndex={zIndex}
+            key={"transition"}
+        >
             {createPortal(<>{children}</>, container)}
 
             <canvasgroup
+                key={"transition-off"}
                 ref={setCanvas}
                 GroupTransparency={groupTransparency}
                 BackgroundTransparency={1}
                 Size={new UDim2(1, 0, 1, 0)}
                 Interactable={false}
                 ClipsDescendants
-            ></canvasgroup>
+            />
 
             <frame
+                key={"transition-on"}
                 ref={setFrame}
                 BackgroundTransparency={1}
                 Size={new UDim2(1, 0, 1, 0)}
                 ClipsDescendants
-            ></frame>
+            />
         </frame>
     );
 }

@@ -1,6 +1,6 @@
 import { Players, RunService } from "@rbxts/services";
-import { covenant } from "../covenant";
-import { IdPlayer } from "./idPlayerComponent";
+import { covenant } from "..";
+import { IdPlayer } from "./_list";
 
 covenant.defineIdentity({
     identityComponent: IdPlayer,

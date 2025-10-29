@@ -1,8 +1,7 @@
 import { Players, RunService } from "@rbxts/services";
-import { covenant } from "../covenant";
-import { CInputs } from "./cInputsComponent";
+import { covenant } from "..";
 import { getInputs } from "shared/inputs";
-import { IdPlayer } from "../idPlayer/idPlayerComponent";
+import { CInputs, IdPlayer } from "./_list";
 
 covenant.defineComponent({
     component: CInputs,

@@ -2,7 +2,7 @@ import { Entity } from "@rbxts/covenant";
 import { useEffect, useState } from "@rbxts/react";
 import { Players } from "@rbxts/services";
 import { covenant } from "shared/covenant";
-import { IdPlayer } from "shared/covenant/idPlayer/idPlayerComponent";
+import { IdPlayer } from "shared/covenant/components/_list";
 
 export function usePlayerEntity() {
     const [playerEntity, setPlayerEntity] = useState(-1 as Entity);

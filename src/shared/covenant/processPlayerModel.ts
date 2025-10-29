@@ -1,6 +1,6 @@
 import { InferComponent } from "@rbxts/covenant";
-import { IdPlayer } from "../idPlayer/idPlayerComponent";
 import { CovenantHooks } from "@rbxts/covenant/src/hooks";
+import { IdPlayer } from "./components/_list";
 
 export function processPlayerModel(
     player: InferComponent<typeof IdPlayer>,

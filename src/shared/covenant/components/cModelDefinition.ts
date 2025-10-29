@@ -1,8 +1,7 @@
 import { covenant } from "shared/covenant";
-import { CModel } from "./cModelComponent";
 import { CollectionService, RunService, Workspace } from "@rbxts/services";
-import { IdPlayer } from "../idPlayer/idPlayerComponent";
-import { processPlayerModel } from "./processPlayerModel";
+import { processPlayerModel } from "../processPlayerModel";
+import { CModel, IdPlayer } from "./_list";
 
 const ENTITY_ATTRIBUTE_NAME = "__ENTITY__";
 const STREAMABLE_TAG_NAME = "__STREAMABLE__";

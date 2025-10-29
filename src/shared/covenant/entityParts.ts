@@ -1,6 +1,6 @@
 import { Entity } from "@rbxts/covenant";
-import { covenant } from "../covenant";
-import { CModel } from "./cModelComponent";
+import { covenant } from "./covenant";
+import { CModel } from "./components/_list";
 
 // helper performance map to determine where in the heck does one physical part in workspace belongs to in the ecs
 export const entityParts: Map<BasePart, Entity> = new Map();

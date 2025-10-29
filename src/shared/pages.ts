@@ -1,1 +1,1 @@
-export type Page = "placeholder";
+export type Page = "placeholder" | "placeholder2";

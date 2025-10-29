@@ -1,8 +1,8 @@
 import { Players, RunService, Workspace } from "@rbxts/services";
-import { covenant } from "../covenant";
-import { IdRepFocus, RepFocusData } from "./idRepFocusComponent";
+import { covenant } from "..";
 import { Make } from "@rbxts/altmake";
 import { pseudoAnchor } from "shared/utils/pvUtils";
+import { IdRepFocus, RepFocusData } from "./_list";
 
 covenant.defineIdentity({
     identityComponent: IdRepFocus,

@@ -1,7 +1,6 @@
 import { RunService, Workspace } from "@rbxts/services";
 import { covenant } from "shared/covenant";
-import { CLocalRepFocus } from "shared/covenant/cLocalRepFocus/cLocalRepFocusComponent";
-import { IdRepFocus } from "shared/covenant/idRepFocus/idRepFocusComponent";
+import { CLocalRepFocus, IdRepFocus } from "shared/covenant/components/_list";
 
 const camera = Workspace.CurrentCamera!;
 
