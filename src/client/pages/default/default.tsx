@@ -26,7 +26,9 @@ export function DefaultPage() {
         <Screen>
             <Transition groupTransparency={lerpBinding(transition, 1, 0)}></Transition>
             {visible && character && <CameraController character={character} />}
-            {visible && humanoid && <MovementController humanoid={humanoid} />}
+            {visible && humanoid && (
+                <MovementController playerEntity={playerEntity} humanoid={humanoid} />
+            )}
         </Screen>
     );
 }

@@ -1,19 +1,33 @@
-import { useCamera, useKeyPress } from "@rbxts/pretty-react-hooks";
-import React, { useEffect, useMemo } from "@rbxts/react";
+import { Entity } from "@rbxts/covenant";
+import { useCamera } from "@rbxts/pretty-react-hooks";
+import React, { useEffect } from "@rbxts/react";
 import { RunService } from "@rbxts/services";
-import { useChangable } from "client/hooks/useChangable";
 import { useComponent } from "client/hooks/useComponent";
 import { useKeybind } from "client/hooks/useKeybind";
-import { getInputs, updateInputs } from "shared/inputs";
+import { CInputs } from "shared/covenant/components/_list";
+import { updateInputs } from "shared/inputs";
 
-export function MovementController({ humanoid }: { humanoid: Humanoid }) {
+export function MovementController({
+    playerEntity,
+    humanoid,
+}: {
+    playerEntity: Entity;
+    humanoid: Humanoid;
+}) {
     const camera = useCamera();
 
     const forward = useKeybind("forward");
     const backward = useKeybind("backward");
     const left = useKeybind("left");
     const right = useKeybind("right");
-    print(forward);
+
+    const jump = useKeybind("jump");
+
+    useEffect(() => {
+        updateInputs((inputs) => {
+            inputs.jump = jump || undefined;
+        });
+    }, [jump]);
 
     useEffect(() => {
         let moveDirection = Vector2.zero;
@@ -34,9 +48,10 @@ export function MovementController({ humanoid }: { humanoid: Humanoid }) {
         });
     }, [forward, backward, left, right]);
 
-    const { moveDirection } = useChangable(getInputs);
+    const inputs = useComponent(playerEntity, CInputs);
 
     useEffect(() => {
+        const moveDirection = inputs?.moveDirection;
         if (moveDirection === undefined) {
             humanoid.WalkSpeed = 0;
             return;
@@ -51,7 +66,11 @@ export function MovementController({ humanoid }: { humanoid: Humanoid }) {
         return () => {
             connection.Disconnect();
         };
-    }, [moveDirection, camera, humanoid]);
+    }, [inputs, camera, humanoid]);
+
+    useEffect(() => {
+        humanoid.Jump = inputs?.jump ?? false;
+    }, [inputs, humanoid]);
 
     return <></>;
 }
