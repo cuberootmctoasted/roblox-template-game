@@ -2,11 +2,23 @@ import { Collection, createCollection, Document } from "@rbxts/lapis";
 import { covenant } from "../covenant";
 import { defaultPlayerSave, PlayerSave } from "../playerSave";
 import { Players, RunService } from "@rbxts/services";
-import { processPlayerSave } from "../processPlayerSave";
 import { CPlayerSave, IdPlayer } from "./_list";
+import { Entity } from "@rbxts/covenant";
+import { CovenantHooks } from "@rbxts/covenant/src/hooks";
 
 // WARNING: if importing lapis in the client will show an error, go into the source code of lapis in init.luau and turn the true to false in Internal.new(true)
 // for consistency purposes, I think this is the only work around that I have for the api, trust me, this doesn't mean convenant is not worth using
+
+export function processPlayerSave(
+    entity: Entity,
+    player: Player,
+    lastSave: PlayerSave,
+    updateId: number,
+    hooks: CovenantHooks,
+): PlayerSave {
+    // how player save interacts with other components
+    return lastSave;
+}
 
 covenant.defineComponent({
     component: CPlayerSave,
@@ -102,8 +114,8 @@ covenant.defineComponent({
 
         const document = documents.get(player);
 
-        if (document === undefined && lastState !== undefined) {
-            return undefined;
+        if (document === undefined) {
+            return defaultPlayerSave;
         }
         if (document !== undefined && lastState === undefined) {
             return document.read();

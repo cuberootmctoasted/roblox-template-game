@@ -1,10 +1,10 @@
 import React from "@rbxts/react";
-import { Template } from "./template/template";
+import { DefaultPage } from "./default/default";
 
 export function Pages() {
     return (
         <>
-            <Template />
+            <DefaultPage />
         </>
     );
 }

@@ -3,21 +3,21 @@ import Sift from "@rbxts/sift";
 // where the definition for inputs are defined
 // preferrably all client server communications are defined here
 export interface Inputs {
-    placeholder: true;
+    moveDirection?: Vector2;
 }
 
 let inputs: Inputs = {
-    placeholder: true,
+    moveDirection: Vector2.zero,
 };
 
 // updating an input meaning that one input might override another, this is the function where the inputs should be overridden
-function reconcileInputs() {}
+function reconcileInputs(pendingInputs: Inputs) {}
 
 export function updateInputs(callback: (inputs: Inputs) => void) {
     const newInputs = Sift.Dictionary.copy(inputs);
     callback(newInputs);
+    reconcileInputs(newInputs);
     inputs = newInputs;
-    reconcileInputs();
 }
 
 export function getInputs() {

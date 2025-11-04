@@ -1,8 +1,10 @@
+import { defaultKeybinds, Keybinds } from "./keybinds";
+
 export interface PlayerSave {
-    placeholder: true;
+    keybinds: Keybinds;
 }
 
 // where the definition of the player save is at
 export const defaultPlayerSave: PlayerSave = {
-    placeholder: true,
+    keybinds: defaultKeybinds,
 };

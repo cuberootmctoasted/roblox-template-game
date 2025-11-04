@@ -14,10 +14,3 @@ export interface RepFocusData {
     player: Player;
 }
 export const IdRepFocus = covenant.worldComponent<RepFocusData>();
-
-export const CKeybinds = covenant.worldComponent<>();
-
-export const CMovement = covenant.worldComponent<{
-    moveDirection?: Vector3;
-    jump?: number;
-}>();
